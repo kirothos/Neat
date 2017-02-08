@@ -190,7 +190,11 @@ public class HealthBarRenderer {
 				if(namel + 20 > size * 2)
 					size = namel / 2F + 10F;
 				float healthSize = size * (health / maxHealth);
-				
+
+				if (!NeatConfig.showEntityName) {
+					bgHeight -= 4F;
+				}
+
 				// Background
 				if(NeatConfig.drawBackground) {
 					buffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
@@ -222,7 +226,9 @@ public class HealthBarRenderer {
 				GlStateManager.pushMatrix();
 				GlStateManager.translate(-size, -4.5F, 0F);
 				GlStateManager.scale(s, s, s);
-				mc.fontRendererObj.drawString(name, 0, 0, 0xFFFFFF);
+				if (NeatConfig.showEntityName) {
+					mc.fontRendererObj.drawString(name, 0, 0, 0xFFFFFF);
+				}
 
 				GlStateManager.pushMatrix();
 				float s1 = 0.75F;
