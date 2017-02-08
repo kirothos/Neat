@@ -94,6 +94,17 @@ public class HealthBarRenderer {
 			String entityID = EntityList.getEntityString(entity);
 			if(NeatConfig.blacklist.contains(entityID))
 				continue;
+
+			boolean foundMatch = false;
+			for(String entry : NeatConfig.blacklist) {
+				if (foundMatch)
+					break;
+				if (entityID.matches(entry)) {
+					foundMatch = true;
+				}
+			}
+			if (foundMatch)
+				continue;
 			
 			processing: {
 				float distance = passedEntity.getDistanceToEntity(viewPoint);
