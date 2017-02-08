@@ -33,6 +33,7 @@ public class NeatConfig {
 	public static boolean showOnBosses = true;
 	public static boolean showOnlyFocused = false;
 	public static boolean enableDebugInfo = true;
+	public static boolean showEntityName = true;
 
 	public static List<String> blacklist;
 	
@@ -69,6 +70,7 @@ public class NeatConfig {
 		showOnBosses = loadPropBool("Display on Bosses", showOnBosses);
 		showOnlyFocused = loadPropBool("Only show the health bar for the entity looked at", showOnlyFocused);
 		enableDebugInfo = loadPropBool("Show Debug Info with F3", enableDebugInfo);
+		showEntityName = loadPropBool("Show Entity Name", showEntityName);
 
 		Property prop = config.get(Configuration.CATEGORY_GENERAL, "Blacklist", new String[] { "Shulker", "ArmorStand" });
 		prop.setComment("Blacklist uses entity IDs, not their display names. Use F3 to see them in the Neat bar.");
