@@ -97,7 +97,7 @@ public class HealthBarRenderer {
 
 			boolean foundMatch = false;
 			for(String entry : NeatConfig.blacklist) {
-				if (foundMatch)
+				if (foundMatch || entityID == null)
 					break;
 				if (entityID.matches(entry)) {
 					foundMatch = true;
